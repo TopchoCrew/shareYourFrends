@@ -46,6 +46,7 @@ namespace Blog.Models
         }
 
         [ForeignKey("Category")]
+        [Display(Name ="Category")]
         public int CategoryId { get; set; }
 
         public virtual Category Category { get; set; }

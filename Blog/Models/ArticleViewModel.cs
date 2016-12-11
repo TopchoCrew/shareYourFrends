@@ -18,7 +18,7 @@ namespace Blog.Models
         public string Content { get; set; }
 
         public string AuthorId { get; set; }
-
+        [Display(Name = "Category")]
         public int CategoryId { get; set; }
 
         public string Tags { get; set; }
