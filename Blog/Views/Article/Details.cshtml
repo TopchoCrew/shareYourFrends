@@ -22,6 +22,7 @@
                         </div>
                         <small class="author pull-right">
                             --author @Model.Author.FullName
+                                     @DateTime.Now
                         </small><br/>
         <footer class="pull-right">
             @if (User.IsInRole("Admin") || Model.IsAuthor(User.Identity.Name))
