@@ -43,6 +43,7 @@ namespace Blog.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             using (var database = new BlogDbContext())
             {
 
@@ -50,6 +51,8 @@ namespace Blog.Controllers
                     .Where(a => a.Id == id)
                     .Include(a => a.Author)
                     .Include(a => a.Tags)
+                    .Include(a => a.Comments)
+                    .Include("Comments.Author")
                     .First();
 
                 //Get the article from database
@@ -60,6 +63,7 @@ namespace Blog.Controllers
 
                 return View(article);
             }
+
         }
         //GET: Article/Create
         [Authorize]
@@ -155,6 +159,7 @@ namespace Blog.Controllers
                     .Where(a => a.Id == id)
                     .Include(a => a.Author)
                     .Include(a => a.Category)
+                    .Include(a => a.Comments)
                     .First();
 
                 //Check if article exists
