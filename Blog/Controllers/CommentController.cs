@@ -181,7 +181,7 @@ namespace Blog.Controllers
                 
 
                 // TO DO Redirect to the Article Details page
-                return RedirectToAction("Detais", "Article", new { id = articleId });
+                return RedirectToAction("Details", "Article", new { id = articleId });
             }
         }
         private bool IsUserAuthorizedToEdit(Comment comment)

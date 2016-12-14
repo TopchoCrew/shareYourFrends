@@ -19,6 +19,10 @@
                 @Html.ActionLink("SHARE YOUR FRIENDS", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("About Us", "Index", "AboutUs")</li>
+                    <li>@Html.ActionLink("Contacts", "Contacts", "AboutUs")</li>
+                </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
