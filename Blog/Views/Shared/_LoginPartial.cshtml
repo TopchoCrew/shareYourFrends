@@ -13,16 +13,25 @@
                 <ul class="dropdown-menu" role="menu">
                     <li>@Html.ActionLink("Users", "List", "User")</li>
                     <li>@Html.ActionLink("Categories", "List", "Category")</li>
+                    <li>@Html.ActionLink("Images", "DeleteImages", "Slider", new { id = "linkDeleteImage" }, null)</li>
                 </ul>
             </li>
 
         }
+       
         <li>
             @Html.ActionLink("Create", "Create", "Article")
         </li>
         <li>
+            @{
+                var imgUrl = Url.Content("~/Content/images/profile/" + User.Identity.GetUserName() + ".png") + "?time=" + DateTime.Now.ToString();
+            }
+            <img src="@imgUrl" height="60" width="55" />
+        </li>
+        <li>
             @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
         </li>
+        
         <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
     </ul>
     }

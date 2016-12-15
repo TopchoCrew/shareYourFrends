@@ -6,6 +6,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Blog.Models
 {
+    
     public class BlogDbContext : IdentityDbContext<ApplicationUser>
     {
         public BlogDbContext()
@@ -19,11 +20,11 @@ namespace Blog.Models
 
         public virtual IDbSet<Tag> Tags { get; set; }
 
-        public virtual IDbSet<Comment> Comments { get; set; }
-
         public static BlogDbContext Create()
         {
             return new BlogDbContext();
         }
+
+        public DbSet<Gallery> gallery { get; set; }
     }
 }

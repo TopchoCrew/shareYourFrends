@@ -43,7 +43,6 @@ namespace Blog.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
             using (var database = new BlogDbContext())
             {
 
@@ -51,8 +50,6 @@ namespace Blog.Controllers
                     .Where(a => a.Id == id)
                     .Include(a => a.Author)
                     .Include(a => a.Tags)
-                    .Include(a => a.Comments)
-                    .Include("Comments.Author")
                     .First();
 
                 //Get the article from database
@@ -63,7 +60,6 @@ namespace Blog.Controllers
 
                 return View(article);
             }
-
         }
         //GET: Article/Create
         [Authorize]
@@ -159,7 +155,6 @@ namespace Blog.Controllers
                     .Where(a => a.Id == id)
                     .Include(a => a.Author)
                     .Include(a => a.Category)
-                    .Include(a => a.Comments)
                     .First();
 
                 //Check if article exists
@@ -284,24 +279,5 @@ namespace Blog.Controllers
 
             return isAdmin || isAuthor;
         }
-
-
-        //GET ListUserArticle
-        public ActionResult ListUserArticle()
-        {
-
-            using (var database = new BlogDbContext())
-                {
-
-                var authorId = database.Users.First(u => u.UserName == this.User.Identity.Name).Id;
-
-                var articles = database.Articles
-                    .Where(a => a.Author.Id.Equals(authorId))
-                    .Include(a => a.Author)
-                    .Include(a => a.Tags)
-                    .ToList();
-                return View(articles);
-                }
-        }
     }
- }
+}

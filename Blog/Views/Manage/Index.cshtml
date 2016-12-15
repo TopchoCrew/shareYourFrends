@@ -1,18 +1,39 @@
 ﻿@model Blog.Models.IndexViewModel
+@using Microsoft.AspNet.Identity
 @{
     ViewBag.Title = "Manage";
 }
 <div class="container">
-
-   
     <div class="well">
-        <h2>@ViewBag.Title your profile.</h2>
-        @Html.ActionLink("View Your Posts", "ListUserArticle", "Article")
+        <h2>@ViewBag.Title.</h2>
+
         <p class="text-success">@ViewBag.StatusMessage</p>
         <div>
             <h4>Change your account settings</h4>
             <hr />
             <dl class="dl-horizontal">
+
+                <dt>Profile Picture:</dt>
+                <dd>
+                    @if (User.Identity.GetUserName() != null)
+            {
+                var imgUrl = Url.Content("~/Content/images/profile/" + User.Identity.GetUserName() + ".png") + "?time=" + DateTime.Now.ToString();
+                        <div class="upimage">
+                            <div class="accimg">
+                                <img src="@imgUrl" height="250" width="250" />
+                            </div>
+                            <div class="mngimg">
+                                @using (Html.BeginForm("UploadPhoto", "Manage", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                                    <div class="btn btn-default browseimg">
+                                        <input type="file" name="file" id="files" onchange="this.form.submit()" />
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    }
+                </dd>
+
                 <dt>Password:</dt>
                 <dd>
                     [

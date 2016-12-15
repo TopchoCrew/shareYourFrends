@@ -195,14 +195,13 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Admin\CategoryController.cs" />
     <Compile Include="Controllers\Admin\UserController.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
-    <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SliderController.cs" />
     <Compile Include="Controllers\TagController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -214,8 +213,8 @@
     <Compile Include="Models\ArticleViewModel.cs" />
     <Compile Include="Models\BlogDbContext.cs" />
     <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\EditUserViewModel.cs" />
+    <Compile Include="Models\Gallery.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Tag.cs" />
@@ -224,7 +223,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\BackGroundHummer.jpg" />
+    <Content Include="Content\jquery.bxslider.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -239,6 +238,8 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.bxslider.js" />
+    <Content Include="Scripts\jquery.bxslider.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -294,15 +295,15 @@
     <Content Include="Views\Home\ListArticles.cshtml" />
     <Content Include="Views\Home\ListCategories.cshtml" />
     <Content Include="Views\Tag\List.cshtml" />
-    <Content Include="Views\Comment\Create.cshtml" />
-    <Content Include="Views\Comment\Edit.cshtml" />
-    <Content Include="Views\Comment\Delete.cshtml" />
-    <Content Include="Views\AboutUs\Index.cshtml" />
-    <Content Include="Views\AboutUs\Contacts.cshtml" />
-    <Content Include="Views\Article\ListUserArticle.cshtml" />
+    <Content Include="Views\Shared\SliderPartial.cshtml" />
+    <Content Include="Views\Slider\Index.cshtml" />
+    <Content Include="Views\Slider\AddImage.cshtml" />
+    <Content Include="Views\Slider\DeleteImages.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Gallery.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\images\" />
     <Folder Include="Views\NewFolder1\" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "AddImage";
+}
+
+<h2>AddImage</h2>
+@using (Html.BeginForm("AddImage", "Slider", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken();
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Galery</legend>
+        <div class="editor-label">
+            Upload Image
+        </div>
+        <div class="editor-field">
+            <input type="file" id="ImagePath" name="ImagePath" />
+        </div>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+<p>@Html.ActionLink("Slider Home", "Index", "Slider")</p>
