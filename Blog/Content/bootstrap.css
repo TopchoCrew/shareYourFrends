@@ -7056,3 +7056,8 @@ article .author  {
 article .author  {
   content: '\2014 \00A0';
 }
+
+li img{
+    width: 55px;
+    height: 60px;
+}

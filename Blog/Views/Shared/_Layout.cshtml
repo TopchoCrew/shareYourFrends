@@ -4,8 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/slider")
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/jquery.bxslider.css" rel="stylesheet" />
 </head>
 <body>
     <div class="navbar navbar-default navbar-fixed-top">
@@ -17,12 +21,14 @@
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("SHARE YOUR FRIENDS", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("About Us", "Index", "AboutUs", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Contacts", "Contacts", "AboutUs", new { area = "" }, new { @class = "navbar-brand" })
+                @if (Request.IsAuthenticated)
+                {
+                @Html.ActionLink("Gallery", "Index", "Slider", new { area = "" }, new { @class = "navbar-brand" })
+                }
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("About Us", "Index", "AboutUs")</li>
-                    <li>@Html.ActionLink("Contacts", "Contacts", "AboutUs")</li>
-                </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
@@ -34,8 +40,7 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    
     @RenderSection("scripts", required: false)
 </body>
 </html>

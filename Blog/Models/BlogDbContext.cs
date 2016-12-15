@@ -6,6 +6,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Blog.Models
 {
+    
     public class BlogDbContext : IdentityDbContext<ApplicationUser>
     {
         public BlogDbContext()
@@ -25,5 +26,7 @@ namespace Blog.Models
         {
             return new BlogDbContext();
         }
+
+        public DbSet<Gallery> gallery { get; set; }
     }
 }

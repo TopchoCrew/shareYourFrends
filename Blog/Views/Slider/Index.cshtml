@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Blog.Models.Gallery>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2 class="text-center">Welcome to our Gallery</h2>
+<p class="text-center">
+
+    @Html.ActionLink("Add Image", "AddImage", "Slider", new { id = "linkAddImage" }, new { @class = "btn btn-info" })
+
+    @Html.ActionLink("Delete Image", "DeleteImages", "Slider", new { id = "linkDeleteImage" }, new { @class = "btn btn-danger" })
+
+</p>
+@Html.Partial("~/Views/Shared/SliderPartial.cshtml", Model)
