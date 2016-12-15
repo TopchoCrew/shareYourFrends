@@ -14,101 +14,133 @@ namespace Blog.Controllers.Admin
         // GET: Category
         public ActionResult Index()
         {
-            return RedirectToAction("List");
+            if (IsUserAuthorized())
+            {
+                return RedirectToAction("List");
+            }
+            return RedirectToAction("Login", "Account");
         }
         //
         //GET: Category/List
         public ActionResult List()
         {
-            using (var database = new BlogDbContext())
+            if (IsUserAuthorized())
             {
-                var categories = database.Categories.ToList();
+                using (var database = new BlogDbContext())
+                {
+                    var categories = database.Categories.ToList();
 
-                return View(categories);
+                    return View(categories);
+                }
             }
+            return RedirectToAction("Login", "Account");
         }
         //
         //GET: Category/Create
         public ActionResult Create()
         {
-            return View();
+            if (IsUserAuthorized())
+            {
+                return View();
+            }
+            return RedirectToAction("Login", "Account");
         }
         //
         //POST: Category/Create
         [HttpPost]
         public ActionResult Create(Category category)
         {
-            if (ModelState.IsValid)
+            if (IsUserAuthorized())
             {
-                using (var database = new BlogDbContext())
+                if (ModelState.IsValid)
                 {
-                    database.Categories.Add(category);
-                    database.SaveChanges();
+                    using (var database = new BlogDbContext())
+                    {
+                        database.Categories.Add(category);
+                        database.SaveChanges();
 
-                    return RedirectToAction("Index");
+                        return RedirectToAction("Index");
+                    }
                 }
+
+                return View(category);
             }
 
-            return View(category);
+            return RedirectToAction("Login", "Account");
         }
         //
         //GET: Category/Edit
         public ActionResult Edit (int? id)
         {
-            if (id == null)
+            if (IsUserAuthorized())
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-
-            using (var database = new BlogDbContext())
-            {
-                var category = database.Categories.FirstOrDefault(c => c.Id == id);
-
-                if (category == null)
+                if (id == null)
                 {
-                    return HttpNotFound();
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
 
-                return View(category);
+                using (var database = new BlogDbContext())
+                {
+                    var category = database.Categories.FirstOrDefault(c => c.Id == id);
+
+                    if (category == null)
+                    {
+                        return HttpNotFound();
+                    }
+
+                    return View(category);
+                }
             }
+
+            return RedirectToAction("Login", "Account");
         }
         //
         //POST: Category/Edit
         [HttpPost]
         public ActionResult Edit(Category category)
         {
-            if (ModelState.IsValid)
+            if (IsUserAuthorized())
             {
-                using (var database = new BlogDbContext())
+                if (ModelState.IsValid)
                 {
-                    database.Entry(category).State = EntityState.Modified;
-                    database.SaveChanges();
+                    using (var database = new BlogDbContext())
+                    {
+                        database.Entry(category).State = EntityState.Modified;
+                        database.SaveChanges();
 
-                    return RedirectToAction("Index");
+                        return RedirectToAction("Index");
+                    }
                 }
+
+                return View(category);
             }
 
-            return View(category);
+            return RedirectToAction("Login", "Account");
         }
         //
         //GET: Category/Delete
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (IsUserAuthorized())
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            using(var database = new BlogDbContext())
-            {
-                var category = database.Categories.FirstOrDefault(c => c.Id == id);
-
-                if (category == null)
+                if (id == null)
                 {
-                    return HttpNotFound();
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
+                using (var database = new BlogDbContext())
+                {
+                    var category = database.Categories.FirstOrDefault(c => c.Id == id);
 
-                return View(category);
+                    if (category == null)
+                    {
+                        return HttpNotFound();
+                    }
+
+                    return View(category);
+                }
             }
+
+            return RedirectToAction("Login", "Account");
         }
         //
         //POST: Category/Delete
@@ -116,22 +148,35 @@ namespace Blog.Controllers.Admin
         [ActionName("Delete")]
         public ActionResult DeleteConfirmed(int? id)
         {
-            using (var database = new BlogDbContext())
+            if (IsUserAuthorized())
             {
-                var category = database.Categories.FirstOrDefault(c => c.Id == id);
-
-                var categoryArticles = category.Articles.ToList();
-
-                foreach (var article in categoryArticles)
+                using (var database = new BlogDbContext())
                 {
-                    database.Articles.Remove(article);
+                    var category = database.Categories.FirstOrDefault(c => c.Id == id);
+
+                    var categoryArticles = category.Articles.ToList();
+
+                    foreach (var article in categoryArticles)
+                    {
+                        database.Articles.Remove(article);
+                    }
+
+                    database.Categories.Remove(category);
+                    database.SaveChanges();
+
+                    return RedirectToAction("Index");
                 }
-
-                database.Categories.Remove(category);
-                database.SaveChanges();
-
-                return RedirectToAction("Index");
             }
+
+            return RedirectToAction("Login", "Account");
+        }
+        private bool IsUserAuthorized()
+        {
+            bool isAdmin = this.User.IsInRole("Admin");
+            bool isModerator = this.User.IsInRole("Moderator");
+
+            return isAdmin || isModerator;
         }
     }
+   
 }

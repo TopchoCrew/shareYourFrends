@@ -280,9 +280,11 @@ namespace Blog.Controllers
         private bool IsUserAuthorizedToEdit(Article article)
         {
             bool isAdmin = this.User.IsInRole("Admin");
+            bool isModerator = this.User.IsInRole("Moderator");
+            bool isEditor = this.User.IsInRole("Editor");
             bool isAuthor = article.IsAuthor(this.User.Identity.Name);
 
-            return isAdmin || isAuthor;
+            return isAdmin || isAuthor || isEditor || isModerator;
         }
 
 
@@ -293,7 +295,7 @@ namespace Blog.Controllers
             using (var database = new BlogDbContext())
                 {
 
-                var authorId = database.Users.First(u => u.UserName == this.User.Identity.Name).Id;
+                var authorId = database.Users.FirstOrDefault(u => u.UserName == this.User.Identity.Name).Id;
 
                 var articles = database.Articles
                     .Where(a => a.Author.Id.Equals(authorId))

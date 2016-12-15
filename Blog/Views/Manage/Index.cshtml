@@ -8,6 +8,8 @@
     <div class="well">
         <h2>@ViewBag.Title your profile.</h2>
         @Html.ActionLink("View Your Posts", "ListUserArticle", "Article")
+        <br/>
+        @Html.ActionLink("View Your Comments", "ListUserComments", "Comment")
         <p class="text-success">@ViewBag.StatusMessage</p>
         <div>
             <h4>Change your account settings</h4>

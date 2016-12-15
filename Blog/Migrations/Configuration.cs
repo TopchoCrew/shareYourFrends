@@ -21,12 +21,19 @@ namespace Blog.Migrations
             {
                 this.CreateRole(context, "Admin");
                 this.CreateRole(context, "User");
+                this.CreateRole(context, "Editor");
+                this.CreateRole(context, "Moderator");
+
             }
 
             if (!context.Users.Any())
             {
                 this.CreateUser(context, "admin@admin.com", "Admin", "123");
                 this.SetRoleToUser(context, "admin@admin.com", "Admin");
+                this.CreateUser(context, "moderator@moderator.com", "Moderator", "123");
+                this.SetRoleToUser(context, "moderator@moderator.com", "Moderator");
+                this.CreateUser(context, "editor@editor.com", "Editor", "123");
+                this.SetRoleToUser(context, "editor@editor.com", "Editor");
             }
         }
         private void CreateRole(BlogDbContext context, string roleName)

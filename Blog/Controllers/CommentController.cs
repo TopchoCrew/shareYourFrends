@@ -187,9 +187,27 @@ namespace Blog.Controllers
         private bool IsUserAuthorizedToEdit(Comment comment)
         {
             bool isAdmin = this.User.IsInRole("Admin");
+            bool isModerator = this.User.IsInRole("Moderator");
+            bool isEditor = this.User.IsInRole("Editor");
             bool isAuthor = comment.IsAuthor(this.User.Identity.Name);
 
-            return isAdmin || isAuthor;
+            return isAdmin || isAuthor || isEditor || isModerator;
+        }
+        //GET Comment/ListUserComments
+        public ActionResult ListUserComments()
+        {
+
+            using (var database = new BlogDbContext())
+            {
+
+                var authorId = database.Users.FirstOrDefault(u => u.UserName == this.User.Identity.Name).Id;
+
+                var comments = database.Comments
+                    .Where(a => a.Author.Id.Equals(authorId))
+                    .Include(a => a.Author)
+                    .ToList();
+                return View(comments);
+            }
         }
     }
 }

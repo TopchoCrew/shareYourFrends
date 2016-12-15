@@ -79,3 +79,4 @@ F:\SoftUni\Software Technologies\03.C# Blog\Blog\shareYourFrends\Blog\bin\Micros
 F:\SoftUni\Software Technologies\03.C# Blog\Blog\shareYourFrends\Blog\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 F:\SoftUni\Software Technologies\03.C# Blog\Blog\shareYourFrends\Blog\obj\Debug\Blog.dll
 F:\SoftUni\Software Technologies\03.C# Blog\Blog\shareYourFrends\Blog\obj\Debug\Blog.pdb
+F:\SoftUni\Software Technologies\03.C# Blog\Blog\shareYourFrends\Blog\obj\Debug\Blog.csprojResolveAssemblyReference.cache
