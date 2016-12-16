@@ -30,11 +30,15 @@
             }
             <img src="@imgUrl" height="60" width="55" />
         </li>
-        <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">@User.Identity.GetUserName()<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+                <li>@Html.ActionLink("View profile" + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })</li>
+                <li><a href="javascript:document.getElementById('logoutForm').submit()">Logout</a></li>
+            </ul>
         </li>
-        
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+
+       
     </ul>
     }
 }
