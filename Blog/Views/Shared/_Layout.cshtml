@@ -13,7 +13,7 @@
     <link href="~/Content/myStyle.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="navbar navbar-default navbar-fixed-top">
+    <div class="navbar navbar-default navbar-fixed-top myNavbarStyle" >
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -36,7 +36,7 @@
         @RenderBody()
     </div>
   
-    <div class="navbar navbar-default navbar-fixed-bottom">
+    <div class="navbar navbar-default navbar-fixed-bottom myNavbarStyle">
         @Html.ActionLink("About Us", "Index", "AboutUs", new { area = "" }, new { @class = "navbar-brand" })
         @Html.ActionLink("Contacts", "Contacts", "AboutUs", new { area = "" }, new { @class = "navbar-brand" })
         <div class="myCopyRight pull-right">
