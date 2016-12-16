@@ -1,0 +1,18 @@
+﻿.myCopyRight{
+    color:white;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.myImage{
+    background-repeat:no-repeat;
+    display:block;
+    margin:0 auto;
+}
+
+.myFrontPageText{
+    font-size:45px;
+    text-align:center;
+    font-family:'Freestyle Script';
+    color:darkblue;
+}

@@ -50,11 +50,7 @@ namespace Blog.Controllers
                     .Where(a => a.Id == id)
                     .Include(a => a.Author)
                     .Include(a => a.Tags)
-<<<<<<< .mine
-                    .Include(a =>a.Comments)
-=======
                     .Include(a => a.Comments)
->>>>>>> .theirs
                     .First();
 
                 //Get the article from database

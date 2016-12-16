@@ -4,6 +4,8 @@
     ViewBag.Title = "List";
 }
 
+@if (Request.IsAuthenticated)
+{
 <div class="container">
     <div class="row">
         @foreach (var category in Model)
@@ -12,7 +14,7 @@
                 <p>
                     <h2>
                         @Html.ActionLink(string.Format($"{category.Name} ({category.Articles.Count})"),
-                        "ListArticles", "Home", new { @categoryId = category.Id }, null)
+             "ListArticles", "Home", new { @categoryId = category.Id }, null)
                 </h2>
             </p>
         </div>
@@ -20,3 +22,4 @@
     </div>
 </div>
 <hr />
+}

@@ -227,10 +227,12 @@
   <ItemGroup>
     <Content Include="Content\BackGroundHummer.jpg" />
     <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\images\HomePic\shareLogo.png" />
     <Content Include="Content\images\profile\admin%40admin.com.png" />
     <Content Include="Content\images\profile\s%40s.bg.png" />
     <Content Include="Content\images\profile\v%40v.bg.png" />
     <Content Include="Content\jquery.bxslider.css" />
+    <Content Include="Content\myStyle.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
