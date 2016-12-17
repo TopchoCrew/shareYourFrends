@@ -51,6 +51,7 @@ namespace Blog.Controllers
                     .Include(a => a.Author)
                     .Include(a => a.ProgrammingLanguage)
                     .Include(a => a.Comments)
+                    .Include("Comments.Author")
                     .First();
 
                 //Get the article from database
