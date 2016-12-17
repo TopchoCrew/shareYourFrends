@@ -9,17 +9,17 @@ namespace Blog.Models
     {
         public Article()
         {
-            this.Tags = new HashSet<Tag>();
+            this.ProgrammingLanguage = new HashSet<Tag>();
             this.Comments = new HashSet<Comment>();
         }
 
-        public Article(string authorId, string title, string content, int categoryId)
+        public Article(string authorId, string Friends_Name, string content, int categoryId)
             : this()
         {
             this.AuthorId = authorId;
-            this.Title = title;
+            this.Friends_Name = Friends_Name;
             this.Content = content;
-            this.CategoryId = categoryId;
+            this.City = categoryId;
         }
 
         [Key]
@@ -27,7 +27,7 @@ namespace Blog.Models
 
         [Required]
         [StringLength(255)]
-        public string Title { get; set; }
+        public string Friends_Name { get; set; }//edit by nasko
 
         [Required]
         public string Content { get; set; }
@@ -44,12 +44,12 @@ namespace Blog.Models
 
         [ForeignKey("Category")]
         [Display(Name = "Category")]
-        public int CategoryId { get; set; }
+        public int City { get; set; }
 
         public virtual Category Category { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }
 
-        public virtual ICollection<Tag> Tags { get; set; }
+        public virtual ICollection<Tag> ProgrammingLanguage { get; set; }
     }
 }

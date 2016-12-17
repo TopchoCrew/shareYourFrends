@@ -28,7 +28,7 @@ namespace Blog.Controllers
                 // Get articles from database
                 var articles = database.Articles
                     .Include(a => a.Author)
-                    .Include(a => a.Tags)
+                    .Include(a => a.ProgrammingLanguage)
                     .ToList();
 
                 return View(articles);
@@ -49,7 +49,7 @@ namespace Blog.Controllers
                 var article = database.Articles
                     .Where(a => a.Id == id)
                     .Include(a => a.Author)
-                    .Include(a => a.Tags)
+                    .Include(a => a.ProgrammingLanguage)
                     .Include(a => a.Comments)
                     .First();
 
@@ -87,7 +87,7 @@ namespace Blog.Controllers
                     //Get author id
                     var authorId = database.Users.Where(u => u.UserName == this.User.Identity.Name).First().Id;
 
-                    var article = new Article(authorId, model.Title, model.Content, model.CategoryId);
+                    var article = new Article(authorId, model.Friends_Name, model.Content, model.City);
 
                     this.SetArticleTags(article, model, database);
 
@@ -127,7 +127,7 @@ namespace Blog.Controllers
                     return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
                 }
 
-                ViewBag.TagsString = string.Join(", ", article.Tags.Select(t => t.Name));
+                ViewBag.TagsString = string.Join(", ", article.ProgrammingLanguage.Select(t => t.Name));
 
                 //Check if article exists
                 if (article == null)
@@ -201,11 +201,11 @@ namespace Blog.Controllers
                 //Create the view model
                 var model = new ArticleViewModel();
                 model.Id = article.Id;
-                model.Title = article.Title;
+                model.Friends_Name = article.Friends_Name;
                 model.Content = article.Content;
-                model.CategoryId = article.CategoryId;
+                model.City = article.City;
                 model.Categories = database.Categories.OrderBy(c => c.Name).ToList();
-                model.Tags = string.Join(", ", article.Tags.Select(t => t.Name));
+                model.ProgrammingLanguage = string.Join(", ", article.ProgrammingLanguage.Select(t => t.Name));
 
                 //Pass the view model to view
                 return View(model);
@@ -226,9 +226,9 @@ namespace Blog.Controllers
                     var article = database.Articles.FirstOrDefault(a => a.Id == model.Id);
 
                     //Set article properties
-                    article.Title = model.Title;
+                    article.Friends_Name = model.Friends_Name;
                     article.Content = model.Content;
-                    article.CategoryId = model.CategoryId;
+                    article.City = model.City;
                     this.SetArticleTags(article, model, database);
 
                     // Save article state in database
@@ -247,29 +247,29 @@ namespace Blog.Controllers
         private void SetArticleTags(Article article, ArticleViewModel model, BlogDbContext database)
         {
             //Split tags
-            var tagsStrings = model.Tags
+            var tagsStrings = model.ProgrammingLanguage
                 .Split(new char[] { ',', ' ' }, StringSplitOptions.RemoveEmptyEntries)
                 .Select(t => t.ToLower())
                 .Distinct();
 
             //Clear current article tags
-            article.Tags.Clear();
+            article.ProgrammingLanguage.Clear();
 
             //Set new tags
             foreach (var tagString in tagsStrings)
             {
                 //Get tag from database by its name
-                Tag tag = database.Tags.FirstOrDefault(t => t.Name.Equals(tagString));
+                Tag tag = database.ProgrammingLanguage.FirstOrDefault(t => t.Name.Equals(tagString));
 
                 //If the tag is null, create new tag
                 if (tag == null)
                 {
                     tag = new Tag() { Name = tagString };
-                    database.Tags.Add(tag);
+                    database.ProgrammingLanguage.Add(tag);
                 }
 
                 //Add tag to article tags
-                article.Tags.Add(tag);
+                article.ProgrammingLanguage.Add(tag);
             }
         }
 

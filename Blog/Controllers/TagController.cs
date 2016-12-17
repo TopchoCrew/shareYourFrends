@@ -22,8 +22,8 @@ namespace Blog.Controllers
             using (var database = new BlogDbContext())
             {
                 //Get atricles from database
-                var articles = database.Tags
-                    .Include(t => t.Articles.Select(a => a.Tags))
+                var articles = database.ProgrammingLanguage
+                    .Include(t => t.Articles.Select(a => a.ProgrammingLanguage))
                     .Include(t => t.Articles.Select(a => a.Author))
                     .FirstOrDefault(t => t.Id == id)
                     .Articles

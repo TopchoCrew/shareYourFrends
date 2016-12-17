@@ -12,16 +12,16 @@ namespace Blog.Models
 
         [Required]
         [StringLength(50)]
-        public string Title { get; set; }
+        public string Friends_Name { get; set; }//edit by nasko
 
         [Required]
         public string Content { get; set; }
 
         public string AuthorId { get; set; }
 
-        public int CategoryId { get; set; }
+        public int City { get; set; }
 
-        public string Tags { get; set; }
+        public string ProgrammingLanguage { get; set; }
 
         public ICollection<Category> Categories { get; set; }
     }

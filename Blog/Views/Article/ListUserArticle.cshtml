@@ -10,7 +10,7 @@
                 <article>
                     <header>
                         <h2>
-                            @Html.ActionLink(@article.Title, "Details", "Article", new { @id = article.Id }, null)
+                            @Html.ActionLink(@article.Friends_Name, "Details", "Article", new { @id = article.Id }, null)
                         </h2>
                     </header>
                     <p>
@@ -18,7 +18,7 @@
                     </p>
                     <footer>
                         <div class="pull-left">
-                            @foreach (var tag in article.Tags)
+                            @foreach (var tag in article.ProgrammingLanguage)
                             {
                                 @Html.ActionLink(tag.Name, "List", "Tag", new { @id = tag.Id }, new { @class = "btn btn-default btn-xs" })
                             }

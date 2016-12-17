@@ -34,9 +34,9 @@ namespace Blog.Controllers
             using (var database = new BlogDbContext())
             {
                 var articles = database.Articles
-                    .Where(a => a.CategoryId == categoryId)
+                    .Where(a => a.City == categoryId)
                     .Include(a => a.Author)
-                    .Include(a => a.Tags)
+                    .Include(a => a.ProgrammingLanguage)
                     .ToList();
 
                 return View(articles);
