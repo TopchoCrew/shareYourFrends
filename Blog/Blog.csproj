@@ -225,7 +225,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\BackGroundHummer.jpg" />
+    <Content Include="Content\binaryBackground.jpg" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\images\HomePic\shareLogo.png" />
     <Content Include="Content\images\profile\admin%40admin.com.png" />
