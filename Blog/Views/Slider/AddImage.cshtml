@@ -2,23 +2,24 @@
 @{
     ViewBag.Title = "AddImage";
 }
-
-<h2>AddImage</h2>
-@using (Html.BeginForm("AddImage", "Slider", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    @Html.AntiForgeryToken();
-    @Html.ValidationSummary(true)
-    <fieldset>
-        <legend>Galery</legend>
-        <div class="editor-label">
-            Upload Image
-        </div>
-        <div class="editor-field">
-            <input type="file" id="ImagePath" name="ImagePath" />
-        </div>
-        <p>
-            <input type="submit" value="Save" />
-        </p>
-    </fieldset>
-}
-<p>@Html.ActionLink("Slider Home", "Index", "Slider")</p>
+<div class="myAddBox">
+    <h2 class="myh2AddImage">Add Image</h2>
+    @using (Html.BeginForm("AddImage", "Slider", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+        @Html.AntiForgeryToken();
+        @Html.ValidationSummary(true)
+        <fieldset>
+            <legend class="mylegend">Galery</legend>
+            <div class="editor-label">
+                <p class="myUpImP">Upload Image</p>
+            </div>
+            <div class="editor-field">
+                <input type="file" id="ImagePath" name="ImagePath" />
+            </div>
+            <p>
+                <input type="submit" value="Save" />
+            </p>
+        </fieldset>
+    }
+    <p>@Html.ActionLink("Slider Home", "Index", "Slider", new { @class = "btn btn-info" })</p>
+</div>

@@ -1,28 +1,86 @@
-﻿.myCopyRight{
-    color:white;
+﻿.myCopyRight {
+    color: white;
     margin-top: 20px;
     margin-right: 20px;
 }
 
-.myImage{
-    background-repeat:no-repeat;
-    display:block;
-    margin:0 auto;
+.myImage {
+    background-repeat: no-repeat;
+    display: block;
+    margin: 0 auto;
 }
 
-.myFrontPageText{
-    font-size:45px;
+.myFrontPageText {
+    font-size: 45px;
+    text-align: center;
+    font-family: 'Freestyle Script';
+    color: darkblue;
+}
+
+.myNavbarStyle {
+    background: -moz-linear-gradient(45deg, rgba(255,0,0,1) 0%, rgba(5,193,255,1) 83%, rgba(0,0,0,1) 100%); /* ff3.6+ */
+    background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(255,0,0,1)), color-stop(83%, rgba(5,193,255,1)), color-stop(100%, rgba(0,0,0,1))); /* safari4+,chrome */
+    background: -webkit-linear-gradient(45deg, rgba(255,0,0,1) 0%, rgba(5,193,255,1) 83%, rgba(0,0,0,1) 100%); /* safari5.1+,chrome10+ */
+    background: -o-linear-gradient(45deg, rgba(255,0,0,1) 0%, rgba(5,193,255,1) 83%, rgba(0,0,0,1) 100%); /* opera 11.10+ */
+    background: -ms-linear-gradient(45deg, rgba(255,0,0,1) 0%, rgba(5,193,255,1) 83%, rgba(0,0,0,1) 100%); /* ie10+ */
+    background: linear-gradient(45deg, rgba(255,0,0,1) 0%, rgba(5,193,255,1) 83%, rgba(0,0,0,1) 100%); /* w3c */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#FF0000',GradientType=1 ); /* ie6-9 */
+}
+
+.myTextInGallery {
+    font-size: 45px;
+    text-align: center;
+    font-family: Algerian;
+    color:rebeccapurple;
+}
+
+.myTTT{
+
     text-align:center;
-    font-family:'Freestyle Script';
-    color:darkblue;
+    font-family:Algerian;
 }
 
-.myNavbarStyle{
-background: -moz-linear-gradient(45deg, rgba(255,0,0,1) 0%, rgba(5,193,255,1) 83%, rgba(0,0,0,1) 100%); /* ff3.6+ */
-background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(255,0,0,1)), color-stop(83%, rgba(5,193,255,1)), color-stop(100%, rgba(0,0,0,1))); /* safari4+,chrome */
-background: -webkit-linear-gradient(45deg, rgba(255,0,0,1) 0%, rgba(5,193,255,1) 83%, rgba(0,0,0,1) 100%); /* safari5.1+,chrome10+ */
-background: -o-linear-gradient(45deg, rgba(255,0,0,1) 0%, rgba(5,193,255,1) 83%, rgba(0,0,0,1) 100%); /* opera 11.10+ */
-background: -ms-linear-gradient(45deg, rgba(255,0,0,1) 0%, rgba(5,193,255,1) 83%, rgba(0,0,0,1) 100%); /* ie10+ */
-background: linear-gradient(45deg, rgba(255,0,0,1) 0%, rgba(5,193,255,1) 83%, rgba(0,0,0,1) 100%); /* w3c */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#FF0000',GradientType=1 ); /* ie6-9 */
+.mylegend{
+    font-size: 25px;
+    text-align: left;
+    font-family: Algerian;
+    color:darkcyan;
+}
+
+.myh2AddImage{
+    text-align: left;
+    font-family: Algerian;
+    color:darkmagenta;
+}
+
+.myh2DelImage{
+    text-align: left;
+    font-family: Algerian;
+    color:darkred;
+}
+.myAddBox{
+   background: -moz-linear-gradient(337deg, rgba(255,255,0,1) 0%, rgba(5,193,255,1) 50%, rgba(255,255,0,1) 100%); /* ff3.6+ */
+background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(255,255,0,1)), color-stop(50%, rgba(5,193,255,1)), color-stop(100%, rgba(255,255,0,1))); /* safari4+,chrome */
+background: -webkit-linear-gradient(337deg, rgba(255,255,0,1) 0%, rgba(5,193,255,1) 50%, rgba(255,255,0,1) 100%); /* safari5.1+,chrome10+ */
+background: -o-linear-gradient(337deg, rgba(255,255,0,1) 0%, rgba(5,193,255,1) 50%, rgba(255,255,0,1) 100%); /* opera 11.10+ */
+background: -ms-linear-gradient(337deg, rgba(255,255,0,1) 0%, rgba(5,193,255,1) 50%, rgba(255,255,0,1) 100%); /* ie10+ */
+background: linear-gradient(113deg, rgba(255,255,0,1) 0%, rgba(5,193,255,1) 50%, rgba(255,255,0,1) 100%); /* w3c */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffff00', endColorstr='#ffff00',GradientType=1 ); /* ie6-9 */
+}
+
+.myDelBox{
+       background: -moz-linear-gradient(337deg, rgba(255,255,0,1) 0%, rgba(5,193,255,1) 50%, rgba(255,255,0,1) 100%); /* ff3.6+ */
+background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(255,255,0,1)), color-stop(50%, rgba(5,193,255,1)), color-stop(100%, rgba(255,255,0,1))); /* safari4+,chrome */
+background: -webkit-linear-gradient(337deg, rgba(255,255,0,1) 0%, rgba(5,193,255,1) 50%, rgba(255,255,0,1) 100%); /* safari5.1+,chrome10+ */
+background: -o-linear-gradient(337deg, rgba(255,255,0,1) 0%, rgba(5,193,255,1) 50%, rgba(255,255,0,1) 100%); /* opera 11.10+ */
+background: -ms-linear-gradient(337deg, rgba(255,255,0,1) 0%, rgba(5,193,255,1) 50%, rgba(255,255,0,1) 100%); /* ie10+ */
+background: linear-gradient(113deg, rgba(255,255,0,1) 0%, rgba(5,193,255,1) 50%, rgba(255,255,0,1) 100%); /* w3c */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffff00', endColorstr='#ffff00',GradientType=1 ); /* ie6-9 */
+}
+
+
+.myUpImP{
+    font-size:18px;
+    font-family:'Book Antiqua';
+    color:darkgreen;
 }

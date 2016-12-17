@@ -2,8 +2,9 @@
 @{
     ViewBag.Title = "DeleteImages";
 }
+<div class="myDelBox">
 
-<h2>DeleteImages</h2>
+<h2 class="myh2DelImage">Delete Images</h2>
 
 @using (Html.BeginForm("DeleteImages", "Slider", FormMethod.Post))
 {
@@ -14,12 +15,13 @@
                 <th>Image</th>
             </tr>
         </thead>
-        <tbody style="background-color:cyan">
+        <tbody style="background-color:ghostwhite">
             @Html.EditorForModel()
         </tbody>
     </table>
-    <input type="submit" value="Delete Selected Images" />
+    <input type="submit" value="Delete Selected Images"  class = "btn btn-danger" />
 }
 
-<p>@Html.ActionLink("Slider Home","Index","Slider")</p>
+<p>@Html.ActionLink("Slider Home","Index","Slider", new { @class = "btn btn-info" })</p>
 
+</div>
