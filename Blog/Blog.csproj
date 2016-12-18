@@ -227,6 +227,23 @@
   <ItemGroup>
     <Content Include="Content\binaryBackground.jpg" />
     <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\images\bx_loader.gif" />
+    <Content Include="Content\images\controls.png" />
+    <Content Include="Content\images\Fact 1.jpg" />
+    <Content Include="Content\images\Fact 10.jpg" />
+    <Content Include="Content\images\Fact 11.jpg" />
+    <Content Include="Content\images\Fact 12.jpg" />
+    <Content Include="Content\images\Fact 13.jpg" />
+    <Content Include="Content\images\Fact 14.jpg" />
+    <Content Include="Content\images\Fact 15.jpg" />
+    <Content Include="Content\images\Fact 2.jpg" />
+    <Content Include="Content\images\Fact 3.jpg" />
+    <Content Include="Content\images\Fact 4.jpg" />
+    <Content Include="Content\images\Fact 5.jpg" />
+    <Content Include="Content\images\Fact 6.jpg" />
+    <Content Include="Content\images\Fact 7.jpg" />
+    <Content Include="Content\images\Fact 8.jpg" />
+    <Content Include="Content\images\Fact 9.jpg" />
     <Content Include="Content\images\Facts\Fact 1.jpg" />
     <Content Include="Content\images\Facts\Fact 10.jpg" />
     <Content Include="Content\images\Facts\Fact 11.jpg" />

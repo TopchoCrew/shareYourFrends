@@ -200,7 +200,7 @@ namespace Blog.Controllers
             using (var database = new BlogDbContext())
             {
 
-                var authorId = database.Users.FirstOrDefault(u => u.UserName == this.User.Identity.Name).Id;
+                var authorId = database.Users.First(u => u.UserName == this.User.Identity.Name).Id;
 
                 var comments = database.Comments
                     .Where(a => a.Author.Id.Equals(authorId))
