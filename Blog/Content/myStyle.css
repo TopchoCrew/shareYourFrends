@@ -84,3 +84,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffff00', end
     font-family:'Book Antiqua';
     color:darkgreen;
 }
+
+.myComments{
+    font-size:28px;
+    font-style:italic;
+    text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F,
+        0 0 0.2em #87F
+}
+
+.myPostCpmmentB{
+    text-align:left;
+}

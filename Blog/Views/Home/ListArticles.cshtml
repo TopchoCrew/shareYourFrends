@@ -1,4 +1,5 @@
 ﻿@model List<Blog.Models.Article>
+@using Microsoft.AspNet.Identity
 
 @{
     ViewBag.Title = "List";
@@ -27,6 +28,10 @@
                         </div>
                         <small class="author pull-right">
                             --author @article.Author.FullName
+                            @{
+                                var imgUrl = Url.Content("~/Content/images/profile/" + User.Identity.GetUserName() + ".png") + "?time=" + DateTime.Now.ToString();
+                            }
+                            <img src="@imgUrl" height="50" width="45" />
                         </small>
                     </footer>
 
