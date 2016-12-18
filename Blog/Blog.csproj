@@ -227,6 +227,21 @@
   <ItemGroup>
     <Content Include="Content\binaryBackground.jpg" />
     <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\images\Facts\Fact 1.jpg" />
+    <Content Include="Content\images\Facts\Fact 10.jpg" />
+    <Content Include="Content\images\Facts\Fact 11.jpg" />
+    <Content Include="Content\images\Facts\Fact 12.jpg" />
+    <Content Include="Content\images\Facts\Fact 13.jpg" />
+    <Content Include="Content\images\Facts\Fact 14.jpg" />
+    <Content Include="Content\images\Facts\Fact 15.jpg" />
+    <Content Include="Content\images\Facts\Fact 2.jpg" />
+    <Content Include="Content\images\Facts\Fact 3.jpg" />
+    <Content Include="Content\images\Facts\Fact 4.jpg" />
+    <Content Include="Content\images\Facts\Fact 5.jpg" />
+    <Content Include="Content\images\Facts\Fact 6.jpg" />
+    <Content Include="Content\images\Facts\Fact 7.jpg" />
+    <Content Include="Content\images\Facts\Fact 8.jpg" />
+    <Content Include="Content\images\Facts\Fact 9.jpg" />
     <Content Include="Content\images\HomePic\shareLogo.png" />
     <Content Include="Content\images\profile\admin%40admin.com.png" />
     <Content Include="Content\images\profile\s%40s.bg.png" />

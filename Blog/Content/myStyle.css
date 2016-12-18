@@ -95,3 +95,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffff00', end
 .myPostCpmmentB{
     text-align:left;
 }
+
+.myimgG{
+    height:0,auto;
+    width:0,auto;
+    margin:auto;
+}
