@@ -1,4 +1,5 @@
 ﻿using Blog.Models;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -42,5 +43,37 @@ namespace Blog.Controllers
                 return View(articles);
             }
         }
+        //add by nasko.
+        // GET: Home
+        public ActionResult ReCaptcha()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult FormSubmit()
+        {
+            //validаtе google recaptcha here
+            var response = Request["g-recaptcha-response"];
+            string secretKey = "6LdoEg8UAAAAAJBpG_6lcgapOAZDuYO0Cup3_h8X";
+            var client = new WebClient();// using system.net
+            var result = client.DownloadString(string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}", secretKey, response));
+            var obj = JObject.Parse(result);
+            var status = (bool)obj.SelectToken("success");
+            ViewBag.Message = status ? "Google reCaptcha validation success" : "Google reCaptcha validation failed";
+
+            //When  you will post form for save data, you should check both the model validation and google recaptcha validation
+
+            //ex.
+            if (ModelState.IsValid && status)
+            {
+                return View("ifView");
+            }
+
+            //Here I am returning to Index page>>> make custom view
+            return View("robbot");
+        }
+        //end add by nasko
+
     }
 }
