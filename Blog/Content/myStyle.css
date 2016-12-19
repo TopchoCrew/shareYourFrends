@@ -363,3 +363,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffff00', end
 }
 
 /*ANIMATION CODE END*/
+
+.myCreateText{
+    text-align:center;
+    font-size: 45px;
+    font-family: 'Freestyle Script';
+    color:black;
+
+}

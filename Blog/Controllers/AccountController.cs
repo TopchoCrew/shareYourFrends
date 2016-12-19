@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Blog.Models;
+using System.Net;
+using Newtonsoft.Json.Linq;
 
 namespace Blog.Controllers
 {
@@ -151,13 +153,41 @@ namespace Blog.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email,FullName = model.FullName, Email = model.Email };
-                var result = await UserManager.CreateAsync(user, model.Password);
 
-                var addRoleResult = UserManager.AddToRole(user.Id, "User");
+                //validаtе google recaptcha here
+                var response = Request["g-recaptcha-response"];
+                string secretKey = "6LdoEg8UAAAAAJBpG_6lcgapOAZDuYO0Cup3_h8X";
+                var client = new WebClient();// using system.net
+                var result2 = client.DownloadString(string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}", secretKey, response));
+                var obj = JObject.Parse(result2);
+                var status = (bool)obj.SelectToken("success");
+                ViewBag.Message = status ? "Google reCaptcha validation success" : "Google reCaptcha validation failed";
 
-                if (result.Succeeded)
+                //When  you will post form for save data, you should check both the model validation and google recaptcha validation
+
+                //ex.
+                //if (ModelState.IsValid && status)
+                //{
+                //    return View(model);
+                //}
+
+                //Here I am returning to Index page>>> make custom view
+                // return View("robbot");
+
+                if (ModelState.IsValid && status)
                 {
+                    var user = new ApplicationUser { UserName = model.Email, FullName = model.FullName, Email = model.Email };
+                    var result = await UserManager.CreateAsync(user, model.Password);
+
+                    var addRoleResult = UserManager.AddToRole(user.Id, "User");
+            
+                
+
+
+                
+                
+                if (result.Succeeded && ModelState.IsValid && status)
+                   {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
@@ -167,10 +197,11 @@ namespace Blog.Controllers
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
                     return RedirectToAction("Index", "Home");
+                    }
+                    AddErrors(result);
                 }
-                AddErrors(result);
+                
             }
-
             // If we got this far, something failed, redisplay form
             return View(model);
         }
@@ -425,6 +456,7 @@ namespace Blog.Controllers
 
             base.Dispose(disposing);
         }
+
 
         #region Helpers
         // Used for XSRF protection when adding external logins

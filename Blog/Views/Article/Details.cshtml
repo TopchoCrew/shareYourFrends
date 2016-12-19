@@ -21,9 +21,9 @@
                                 @Html.ActionLink(tag.Name, "List", "Tag", new { @id = tag.Id }, new { @class = "btn btn-default btn-xs" })
                             }
                         </div>
-                       <!-- <small class="author pull-right">
+                       <small class="author pull-right">
                             --author @Model.Author.FullName
-                        </small><br/>-->
+                        </small><br/>
         <footer class="pull-right">
             @if (User.IsInRole("Admin") || Model.IsAuthor(User.Identity.Name) || User.IsInRole("Moderator") || User.IsInRole("Editor"))
             {

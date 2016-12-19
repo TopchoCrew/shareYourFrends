@@ -4,12 +4,12 @@
 }
 <div class="container">
     <div class="well">
-<h2>@ViewBag.Title.</h2>
+<h2 class="myCreateText">@ViewBag.Title</h2>
 
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    <h4>Create a new account.</h4>
+    <h4 class="myCreateText">Create a new account</h4>
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
     <div class="form-group">
@@ -36,11 +36,32 @@
             @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
         </div>
     </div>
-    <div class="form-group">
+<!---->
+
+    <h2>reCaptcha</h2>
+    <div>
+        @using (Html.BeginForm("FormSubmit", "Home", FormMethod.Post))
+        {
+           
+
+            <div class="g-recaptcha center-block" data-sitekey="6LdoEg8UAAAAAB69vMEe4MHIrRnhNWrDofo1yWTL"></div>
+            <input type="submit" value="Submit", new { class = "btn btn-success btn-sm" }/>
+           
+        }
+    </div>
+        <span style="display: inline-block; font-size:20px;margin:20px;padding:20px;color:red; border:1px solid rgba(0, 0, 0, 0.00)">
+            @ViewBag.Message
+
+        </span>
+
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+<!---->
+
+   <!-- <div class="form-group">
         <div class="col-md-offset-4 col-md-4">
             <input type="submit" class="btn btn-default" value="Register" />
         </div>
-    </div>
+    </div> -->
 }
         </div>
     </div>
