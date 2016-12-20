@@ -19,7 +19,7 @@
                 var imgUrl = Url.Content("~/Content/images/profile/" + User.Identity.GetUserName() + ".png") + "?time=" + DateTime.Now.ToString();
                         <div class="upimage">
                             <div class="accimg">
-                                <img src="@imgUrl" height="250" width="250" />
+                                <img src="@imgUrl" height="250" width="312.93" />
                             </div>
                             <div class="mngimg">
                                 @using (Html.BeginForm("UploadPhoto", "Manage", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -87,12 +87,17 @@
                         }
                     </dd>
                 *@
-                <dt>Two-Factor Authentication:</dt>
-                <dd>
-                    <p>
-                        There are no two-factor authentication providers configured. See <a href="http://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
-                        for details on setting up this ASP.NET application to support two-factor authentication.
-                    </p>
+
+                <!--edit by nasko. I remove this because we don't need two-factor for auhentications. -->
+
+
+                @*<dt>Two-Factor Authentication:</dt>
+    <dd>
+        <p>
+            There are no two-factor authentication providers configured. See <a href="http://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
+            for details on setting up this ASP.NET application to support two-factor authentication.
+        </p>*@
+                <!--end of Nasko editing-->
                     @*@if (Model.TwoFactor)
                         {
                             using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
