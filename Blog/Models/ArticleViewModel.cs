@@ -15,6 +15,11 @@ namespace Blog.Models
         public string Friends_Name { get; set; }//edit by nasko
 
         [Required]
+        [StringLength(50)]
+        public string GitHubLink { get; set; }//add by nasko
+
+
+        [Required]
         public string Content { get; set; }
 
         public string AuthorId { get; set; }

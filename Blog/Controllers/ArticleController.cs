@@ -88,7 +88,7 @@ namespace Blog.Controllers
                     //Get author id
                     var authorId = database.Users.Where(u => u.UserName == this.User.Identity.Name).First().Id;
 
-                    var article = new Article(authorId, model.Friends_Name, model.Content, model.City);
+                    var article = new Article(authorId, model.Friends_Name, model.Content, model.City, model.GitHubLink);
 
                     this.SetArticleTags(article, model, database);
 

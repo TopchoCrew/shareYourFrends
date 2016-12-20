@@ -20,7 +20,11 @@ namespace Blog.Models
 
         public virtual IDbSet<Tag> ProgrammingLanguage { get; set; }
 
+       // public virtual IDbSet<gitLink> gitLinks { get; set; }
+
         public virtual IDbSet<Comment> Comments { get; set; }
+
+
 
         public static BlogDbContext Create()
         {

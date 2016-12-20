@@ -13,21 +13,27 @@ namespace Blog.Models
             this.Comments = new HashSet<Comment>();
         }
 
-        public Article(string authorId, string Friends_Name, string content, int categoryId)
+        public Article(string authorId, string Friends_Name, string content, int categoryId, string gitLink)
             : this()
         {
             this.AuthorId = authorId;
             this.Friends_Name = Friends_Name;
             this.Content = content;
             this.City = categoryId;
+            this.GitHubLink = gitLink;//add bu nasko
         }
+        
 
         [Key]
         public int Id { get; set; }
 
         [Required]
         [StringLength(255)]
-        public string Friends_Name { get; set; }//edit by nasko
+        public string Friends_Name { get; set; }//edit by nasko// work don't touch
+
+        [Required]
+        [StringLength(255)]
+        public string GitHubLink { get; set; }//add by nasko
 
         [Required]
         public string Content { get; set; }
