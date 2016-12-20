@@ -28,8 +28,9 @@
                         </div>
                         <small class="author pull-right">
                             --author @article.Author.FullName
-                            @{
-                                var imgUrl = Url.Content("~/Content/images/profile/" + User.Identity.GetUserName() + ".png") + "?time=" + DateTime.Now.ToString();
+                            @{<!--  var imgUrl = Url.Content("~/Content/images/profile/" + User.Identity.GetUserName() + ".png") + "?time=" + DateTime.Now.ToString();
+                            }   edit by nasko-->
+                                var imgUrl = Url.Content("~/Content/images/profile/" + article.Author.Email + ".png") + "?time=" + DateTime.Now.ToString();
                             }
                             <img src="@imgUrl" height="50" width="45" />
                         </small>

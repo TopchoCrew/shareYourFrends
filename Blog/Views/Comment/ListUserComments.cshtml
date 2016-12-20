@@ -11,10 +11,17 @@
                 <p>
                     @comment.Content
                 </p>
-                <small class="author pull-left">
+                <small class="author pull-right">
                     --author @comment.Author.FullName
+                    @{
+                        <!-- Add by nasko-->
+                        var imgUrl = Url.Content("~/Content/images/profile/" + comment.Author.Email + ".png") + "?time=" + DateTime.Now.ToString();
+                    }
+                    <img src="@imgUrl" height="60" width="55" />
                 </small>
                 <br />
+                <br />
+                <br /><p>Push button to view article</p>
                 @Html.ActionLink("Article", "Details", "Article", new { @id = comment.ArticleId }, new { @class = "btn btn-success btn-xs" })
             </div>
         }

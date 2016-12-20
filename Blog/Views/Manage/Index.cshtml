@@ -19,7 +19,7 @@
                 var imgUrl = Url.Content("~/Content/images/profile/" + User.Identity.GetUserName() + ".png") + "?time=" + DateTime.Now.ToString();
                         <div class="upimage">
                             <div class="accimg">
-                                <img src="@imgUrl" height="250" width="312.93" />
+                                <img src="@imgUrl" height="250" width="312" />
                             </div>
                             <div class="mngimg">
                                 @using (Html.BeginForm("UploadPhoto", "Manage", FormMethod.Post, new { enctype = "multipart/form-data" }))

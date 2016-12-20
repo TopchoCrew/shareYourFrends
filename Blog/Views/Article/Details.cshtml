@@ -23,8 +23,9 @@
                         </div>
                        <small class="author pull-right">
                             --author @Model.Author.FullName
-                           @{
-                               var imgUrl2 = Url.Content("~/Content/images/profile/" + User.Identity.GetUserName() + ".png") + "?time=" + DateTime.Now.ToString();
+                           @{<!--
+                               var imgUrl2 = Url.Content("~/Content/images/profile/" + User.Identity.GetUserName() + ".png") + "?time=" + DateTime.Now.ToString();-->
+                               var imgUrl2 = Url.Content("~/Content/images/profile/" + Model.Author.Email  + ".png") + "?time=" + DateTime.Now.ToString();
                            }
                            <img src="@imgUrl2" height="60" width="55" />
                         </small><br/><br /><br />
@@ -45,11 +46,12 @@
         <p>
             @comment.Content
         </p>
-        <small class="author pull-left">
+        <small class="author col-md-offset-2 pull-left"><!--edit by nasko-->
             
             --author @comment.Author.FullName
-                @{
-                    var imgUrl = Url.Content("~/Content/images/profile/" + User.Identity.GetUserName() + ".png") + "?time=" + DateTime.Now.ToString();
+                @{ <!-- var imgUrl = Url.Content("~/Content/images/profile/" + User.Identity.GetUserName() + ".png") + "?time=" + DateTime.Now.ToString();
+                -->
+                    var imgUrl = Url.Content("~/Content/images/profile/" + comment.Author.Email + ".png") + "?time=" + DateTime.Now.ToString();
                 }
                 <img src="@imgUrl" height="60" width="55" />
             

@@ -261,7 +261,6 @@
     <Content Include="Content\images\Facts\Fact 9.jpg" />
     <Content Include="Content\images\HomePic\shareLogo.png" />
     <Content Include="Content\images\profile\admin%40admin.com.png" />
-    <Content Include="Content\images\profile\s%40s.bg.png" />
     <Content Include="Content\images\profile\v%40v.bg.png" />
     <Content Include="Content\jquery.bxslider.css" />
     <Content Include="Content\myStyle.css" />
