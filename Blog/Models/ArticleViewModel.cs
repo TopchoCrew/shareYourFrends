@@ -14,9 +14,9 @@ namespace Blog.Models
         [StringLength(50)]
         public string Friends_Name { get; set; }//edit by nasko
 
-        [Required]
-        [StringLength(50)]
-        public string GitHubLink { get; set; }//add by nasko
+        //[Required]
+        //[StringLength(50)]
+        //public string GitHubLink { get; set; }//add by nasko
 
 
         [Required]
