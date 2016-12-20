@@ -6,13 +6,13 @@
 
 @if (Request.IsAuthenticated)
 {
-<div class="container">
+<div class="container ">
     <div class="row">
         @foreach (var category in Model)
         {
             <div class="col-sm-6 text-center text-uppercase">
                 <p>
-                    <h2>
+                    <h2 id="myList">
                         @Html.ActionLink(string.Format($"{category.Name} ({category.Articles.Count})"),
              "ListArticles", "Home", new { @categoryId = category.Id }, null)
                 </h2>
@@ -21,7 +21,6 @@
         }
     </div>
 </div>
-<hr />
 <div id="myClouds">
     <div class="myCloud x1"></div>
     <div class="myCloud x2"></div>

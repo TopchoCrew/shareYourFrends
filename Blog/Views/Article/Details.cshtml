@@ -23,7 +23,11 @@
                         </div>
                        <small class="author pull-right">
                             --author @Model.Author.FullName
-                        </small><br/>
+                           @{
+                               var imgUrl2 = Url.Content("~/Content/images/profile/" + User.Identity.GetUserName() + ".png") + "?time=" + DateTime.Now.ToString();
+                           }
+                           <img src="@imgUrl2" height="60" width="55" />
+                        </small><br/><br /><br />
         <footer class="pull-right">
             @if (User.IsInRole("Admin") || Model.IsAuthor(User.Identity.Name) || User.IsInRole("Moderator") || User.IsInRole("Editor"))
             {
@@ -47,7 +51,7 @@
                 @{
                     var imgUrl = Url.Content("~/Content/images/profile/" + User.Identity.GetUserName() + ".png") + "?time=" + DateTime.Now.ToString();
                 }
-                <img src="@imgUrl" height="50" width="45" />
+                <img src="@imgUrl" height="60" width="55" />
             
         </small>
         <br />
