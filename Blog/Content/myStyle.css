@@ -559,8 +559,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffff00', end
 }
 
 @-webkit-keyframes moveclouds{
-    0% {margin-left:1000px;}
-    100% {margin-left:-1000px;}
+    0% {margin-left:1550px;}
+    100% {margin-left:-900px;}
 }
 
 /*ANIMATION CODE END*/
@@ -579,5 +579,5 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffff00', end
 
 
 body{
-    background:rgba(5,193,255,1);
+    background:rgb(204, 255, 255);
 }
