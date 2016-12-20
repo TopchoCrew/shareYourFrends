@@ -23,12 +23,12 @@
                             }
                         </div>
                        <small class="author pull-right">
-
-                           <em>Link to GitHub profile:                                         </em>
-                           <a href="https://github.com/radevatns" target="_blank">
-                           <img src="~/Content/images/githubLogo.jpg width="100" height="100" title="click here to viwe GitHub profile" Alt="" border="0">
-                          </a><!--ADD BY NASKO-->
-
+        @*
+     <em>Link to GitHub profile:                                         </em>
+     <a href="https://github.com/radevatns" target="_blank">
+     <img src="~/Content/images/githubLogo.jpg width="100" height="100" title="click here to viwe GitHub profile" Alt="" border="0">
+    </a><!--ADD BY NASKO-->
+        *@
                             --author @Model.Author.FullName
                            @{<!--
                                var imgUrl2 = Url.Content("~/Content/images/profile/" + User.Identity.GetUserName() + ".png") + "?time=" + DateTime.Now.ToString();-->
