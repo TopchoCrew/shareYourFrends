@@ -26,9 +26,13 @@
                         </div>
                         <small class="author pull-right">
                             --author @article.Author.FullName
+                            @{
+                        <!-- Add by todor-->
+                                var imgUrl = Url.Content("~/Content/images/profile/" + article.Author.Email + ".png") + "?time=" + DateTime.Now.ToString();
+                            }
+                            <img src="@imgUrl" height="60" width="55" />
                         </small>
                     </footer>
-
                 </article>
             </div>
         }

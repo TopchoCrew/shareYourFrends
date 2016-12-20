@@ -118,6 +118,8 @@ namespace Blog.Controllers
                     .Where(a => a.Id == id)
                     .Include(a => a.Author)
                     .Include(a => a.Category)
+                    .Include(a => a.ProgrammingLanguage)
+                    .Include(a => a.Comments)
                     .First();
 
               
@@ -157,6 +159,8 @@ namespace Blog.Controllers
                     .Where(a => a.Id == id)
                     .Include(a => a.Author)
                     .Include(a => a.Category)
+                    .Include(a => a.ProgrammingLanguage)
+                    .Include(a => a.Comments)
                     .First();
 
                 //Check if article exists
@@ -237,7 +241,7 @@ namespace Blog.Controllers
                     database.SaveChanges();
 
                     //Redirect to the index page
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Details", new { article.Id});
                 }
             }
 

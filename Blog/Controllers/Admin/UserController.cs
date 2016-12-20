@@ -213,6 +213,15 @@ namespace Blog.Controllers.Admin
                 //Get user articles from database
                 var userArticles = database.Articles.Where(a => a.Author.Id == user.Id);
 
+                //Get user comments from database
+                var userComments = database.Comments.Where(c => c.Author.Id == user.Id);
+
+                //Delete user comments
+                foreach (var comment in userComments)
+                {
+                    database.Comments.Remove(comment);
+                }
+
                 //Delete user articles
                 foreach (var article in userArticles)
                 {
